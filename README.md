@@ -1,8 +1,9 @@
-🚀 Multi-Agent AI News Generation System
-CrewAI + Google Gemini 1.5 Flash + Tool-Augmented LLM Architecture
-🧠 Overview
+# NewsOrchestrator AI 🤖📰 
+## A Multi-Agent AI News Generation System
 
-This project implements a production-style multi-agent AI system using CrewAI and Google Gemini (1.5 Flash) that autonomously researches and generates structured blog articles on emerging trends.
+### 🧠 Overview
+
+This project implements a production-style multi-agent AI system using CrewAI and Google Gemini 1.5 Flash that autonomously researches and generates structured blog articles on emerging trends.
 
 The system simulates collaborative teamwork between AI agents:
 
@@ -10,19 +11,21 @@ The system simulates collaborative teamwork between AI agents:
 
 ✍️ Writer Agent – Synthesizes research into a structured, engaging article
 
-Unlike many LLM projects that rely on paid APIs, this system is built entirely using free-tier APIs, demonstrating cost-efficient AI architecture design.
+Unlike many LLM-based projects that rely on expensive APIs, this system is built using free-tier APIs, demonstrating a cost-efficient and scalable AI architecture design.
 
-🏗 System Architecture
-User Topic
-     ↓
-Research Agent (Gemini + Search Tool)
-     ↓
-Structured Research Report
-     ↓
-Writer Agent (Gemini)
-     ↓
-Markdown Blog Output
-Workflow Type: Sequential Agent Orchestration
+## 🖥️ Application Preview
+
+### Home Screen
+![Home](screenshots/home.png)
+
+### Generation in Progress
+![Loading](screenshots/loading.png)
+
+### Generated Output
+![Output](screenshots/output.png)
+
+
+### Workflow Type: Sequential Agent Orchestration
 
 Task 1 → Research & analysis
 
@@ -30,42 +33,37 @@ Task 2 → Content generation
 
 Output saved as .md file
 
-🤖 Agents
-🔎 Research Agent
 
-Role: Senior Technology Researcher
+### 🤖 Agents
 
-Capabilities:
+### 🔎 Research Agent
 
-Real-time web search
+#### Role: Senior Technology Researcher
 
-Trend identification
+##### Capabilities:
 
-Market risk analysis
+- Real-time web search
 
-Memory-enabled
+- Trend identification
 
-Delegation allowed
+- Market risk analysis
 
-✍️ Writer Agent
+- Memory-enabled
 
-Role: Professional Tech Journalist
+- Delegation allowed
 
-Capabilities:
 
-Structured narrative writing
+### ✍️ Writer Agent
 
-Markdown formatting
+#### Role: Professional Tech Journalist
 
-Clear industry-focused explanations
+##### Capabilities:
 
-Independent task execution
+- Structured narrative writing
 
-🛠 Tech Stack
-Component	Technology
-LLM	Google Gemini 1.5 Flash
-Agent Framework	CrewAI
-Tool Integration	Serper (Google Search API)
-LLM Interface	LangChain
-Environment	Python 3.10
-Deployment (Optional)	Streamlit / FastAPI
+- Markdown formatting
+
+- Clear industry-focused explanations
+
+- Independent task execution
+
