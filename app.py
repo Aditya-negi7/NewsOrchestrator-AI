@@ -32,7 +32,17 @@ topic = st.text_input("Enter a topic")
 if st.button("Generate News"):
     if topic:
         with st.spinner("Generating..."):
-            result = run_crew(topic)
-            st.write(result)
+            try:
+                result = run_crew(topic)
+
+                if hasattr(result, "raw"):
+                    st.subheader("📰 Generated Article")
+                    st.markdown(result.raw)
+                else:
+                    st.write(result)
+
+            except Exception as e:
+                st.error(f"Error: {str(e)}")
+
     else:
         st.warning("Please enter a topic")
