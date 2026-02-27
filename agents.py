@@ -1,3 +1,4 @@
+from tools import tool
 from crewai import Agent
 from langchain_google_genai import ChatGoogleGenerativeAI
 import os
