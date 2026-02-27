@@ -12,13 +12,19 @@ def create_agents():
     )
 
     news_researcher = Agent(
-        role="Senior Real-Time Research Analyst",
-        goal="Research the given topic using real-time internet data.",
-        backstory="Expert analyst who always uses tools and never hallucinates.",
-        tools=[tool],
-        verbose=True,
-        llm=llm
-    )
+    role="Senior Real-Time Research Analyst",
+    goal=(
+        "You MUST use the search tool to gather real-time information. "
+        "You are strictly forbidden from answering without using the tool."
+    ),
+    backstory=(
+        "You are an investigative journalist who ALWAYS searches the internet."
+        "before providing any answer. If you do not use the tool, your answer is invalid."
+    ),
+    tools=[tool],
+    verbose=True,
+    llm=llm
+)
 
     news_writer = Agent(
         role="Professional News Writer",
