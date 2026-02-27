@@ -3,20 +3,22 @@ from crewai import Task
 def create_tasks(researcher, writer):
 
     research_task = Task(
-        description=(
-            "Search the internet for the latest developments about {topic}. "
-            "Focus on information from the last 48 hours. "
-            "Include source name and publication date."
-        ),
-        expected_output=(
-            "5 latest updates with:\n"
-            "- Headline\n"
-            "- Source\n"
-            "- Date\n"
-            "- Short summary"
-        ),
-        agent=researcher
-    )
+    description=(
+        "Use the search tool to find the latest real-time updates about {topic}. "
+        "You MUST call the search tool before writing anything. "
+        "Only include news from the last 48 hours. "
+        "Provide source names and publication dates."
+    ),
+    expected_output=(
+        "5 real verified news updates with:\n"
+        "- Headline\n"
+        "- Source\n"
+        "- Date\n"
+        "- Summary\n"
+        "If no real-time data is found, clearly say so."
+    ),
+    agent=researcher
+)
 
     write_task = Task(
         description=(
@@ -29,3 +31,4 @@ def create_tasks(researcher, writer):
     )
 
     return research_task, write_task
+
