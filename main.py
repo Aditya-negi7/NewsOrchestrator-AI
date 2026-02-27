@@ -9,6 +9,7 @@ print("Serper Key:", os.getenv("SERPER_API_KEY"))
 from crew_setup import create_crew
 
 def run_crew(topic):
-    crew = create_crew(topic)
-    result = crew.kickoff()
+    crew = create_crew()
+    result = crew.kickoff(inputs={"topic": topic})
     return result
+
