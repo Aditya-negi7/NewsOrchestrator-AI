@@ -14,6 +14,7 @@ def create_agents():
         role="News Researcher",
         goal="Research latest news",
         backstory="Expert news analyst",
+        tools=[tool],
         verbose=True,
         llm=llm
     )
@@ -22,6 +23,7 @@ def create_agents():
         role="News Writer",
         goal="Write structured article",
         backstory="Professional journalist",
+        tools=[tool],
         verbose=True,
         llm=llm
     )
