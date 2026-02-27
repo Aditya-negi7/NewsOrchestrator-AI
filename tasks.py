@@ -4,37 +4,28 @@ def create_tasks(news_researcher, news_writer):
 
     # Research Task
     research = Task(
-        description=(
-            "An AI News Research Specialist responsible for identifying and collecting "
-            "the latest trends, developments, and updates on {topic} from reliable "
-            "and recent sources. The agent focuses only on factual, up-to-date "
-            "information and includes source names and publication dates. "
-            "It avoids speculation and does not generate unverified content."
-        ),
-        expected_output=(
-            "A structured list of recent articles including: "
-            "Headline, Source name, Publication date, "
-            "Key insights (2–4 bullet points per article)."
-        ),
-        agent=news_researcher,
-    )
+    description=(
+        "If recency_mode is TRUE, you MUST search for articles "
+        "published between {three_days_ago} and {today}. "
+        "Start with today's or yesterday's news first. "
+        "Do NOT include articles older than 4 days.\n\n"
 
-    # Writing Task
-    write = Task(
-        description=(
-            "Compose an insightful article on {topic}. "
-            "Clear, professional, and well-structured news article. "
-            "Maintain a neutral journalistic tone and reference "
-            "sources and publication dates within the article."
-        ),
-        expected_output=(
-            "A polished news article on {topic} including: "
-            "Strong headline, Dateline, Introduction summarizing key trend, "
-            "Body paragraphs referencing sources with dates, "
-            "Concise concluding summary."
-        ),
-        agent=news_writer,
-        output_file='new-blog-post.md'
-    )
+        "If recency_mode is FALSE, you may include authoritative "
+        "articles regardless of publication date, prioritizing "
+        "high-quality sources and relevance over recency.\n\n"
 
+        "Always clearly mention publication date, time, source name, "
+        "and URL. Cover diverse aspects of the topic."
+    ),
+    expected_output=(
+        "Return a structured list of at least 5 articles including:\n"
+        "- Headline\n"
+        "- Source\n"
+        "- Publication Date\n"
+        "- Publication Time\n"
+        "- URL\n"
+        "- 2–4 key bullet insights"
+    ),
+    agent=news_researcher,
+)
     return [research, write]
