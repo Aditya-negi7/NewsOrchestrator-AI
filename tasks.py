@@ -1,31 +1,36 @@
 from crewai import Task
+from agents import smart_researcher, smart_writer
 
-def create_tasks(news_researcher, news_writer):
-
-    # Research Task
-    research = Task(
+research_task = Task(
     description=(
-        "If recency_mode is TRUE, you MUST search for articles "
-        "published between {three_days_ago} and {today}. "
-        "Start with today's or yesterday's news first. "
-        "Do NOT include articles older than 4 days.\n\n"
-
-        "If recency_mode is FALSE, you may include authoritative "
-        "articles regardless of publication date, prioritizing "
-        "high-quality sources and relevance over recency.\n\n"
-
-        "Always clearly mention publication date, time, source name, "
-        "and URL. Cover diverse aspects of the topic."
+        "Search the internet for the latest developments, trends, or news "
+        "about the topic: {topic}. "
+        "Focus only on recent information from the last 48 hours. "
+        "Provide source name and publication date."
     ),
     expected_output=(
-        "Return a structured list of at least 5 articles including:\n"
+        "A structured research report including:\n"
+        "- 5 Latest Updates\n"
         "- Headline\n"
-        "- Source\n"
+        "- Source Name\n"
         "- Publication Date\n"
-        "- Publication Time\n"
-        "- URL\n"
-        "- 2–4 key bullet insights"
+        "- 2-3 line summary for each"
     ),
-    agent=news_researcher,
+    agent=smart_researcher
 )
-    return [research, write]
+
+write_task = Task(
+    description=(
+        "Using the research provided, write a professional news-style article "
+        "with clear headings and structured paragraphs."
+    ),
+    expected_output=(
+        "A well-structured article with:\n"
+        "- Engaging headline\n"
+        "- Introduction\n"
+        "- Key developments\n"
+        "- Conclusion\n"
+        "No fake information."
+    ),
+    agent=smart_writer
+)
