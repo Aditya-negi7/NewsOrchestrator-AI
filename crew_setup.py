@@ -8,9 +8,10 @@ def create_crew():
     research_task, write_task = create_tasks(researcher, writer)
 
     crew = Crew(
-        agents=[researcher, writer],
-        tasks=[research_task, write_task],
-        verbose=2
-    )
+    agents=[researcher, writer],
+    tasks=[research_task, write_task],
+    verbose=True
+)
 
     return crew
+
