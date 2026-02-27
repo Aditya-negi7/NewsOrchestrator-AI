@@ -7,7 +7,7 @@ def create_agents():
     llm = ChatGoogleGenerativeAI(
         model="gemini-2.5-flash",
         temperature=1,
-        google_api_key=os.getenv("")
+        google_api_key=os.getenv("GOOGLE_API_KEY")
     )
 
     news_researcher = Agent(
