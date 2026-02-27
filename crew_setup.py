@@ -1,6 +1,6 @@
 from crewai import Crew
-from tasks import create_tasks
 from agents import create_agents
+from tasks import create_tasks
 
 def create_crew():
     news_researcher, news_writer = create_agents()
