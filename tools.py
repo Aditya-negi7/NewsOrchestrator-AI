@@ -1,8 +1,10 @@
-## https://serper.dev/
-
 from crewai_tools import SerperDevTool
-import os
+import streamlit as st
 
-tool = SerperDevTool(
-    api_key=os.getenv("SERPER_API_KEY")
-)
+
+def get_search_tool():
+    """Creates the Serper search tool using Streamlit secrets."""
+    return SerperDevTool(
+        api_key=st.secrets["SERPER_API_KEY"],
+        n_results=10
+    )
